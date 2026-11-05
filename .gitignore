@@ -1,4 +1,4 @@
 # Ignorer les dossiers de build et de dépendances
 /.vscode
-
+/output
 # Ignorer les fichiers d'output locale
