@@ -52,7 +52,7 @@ int main()
 
         // Update de la balle :
 
-        // Simulation rebond si ça dépasse
+        // Simulation rebond avec les murs
         if (balle.getX() <= 0 || balle.getX() >= 800 - balle.getRadius())
         {
             balle.setVelX(balle.getVelX() * -1);
@@ -62,6 +62,17 @@ int main()
         {
             balle.setVelY(balle.getVelY() * -1);
             balle.addVelY();
+            balle.addVelX();
+        }
+        // Check si la balle est en colision avec le paddle
+        if (balle.getY() <= 500 && balle.getY() >= 450)
+        {
+            // Check si le paddle est devant
+            if (balle.getX() > paddle.getX() && balle.getX() < (paddle.getX() + paddle.getWidth()))
+            {
+                balle.setVelY(balle.getVelY() * -1);
+                balle.addVelY();
+            }
         }
 
         // Update de la position
