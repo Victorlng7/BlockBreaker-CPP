@@ -33,7 +33,7 @@ public:
     void addVelY();
 
     // Methodes
+    void rebondX();
     void rebondY();
     void update();
-    void rebondX();
 };
