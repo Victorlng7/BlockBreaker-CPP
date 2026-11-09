@@ -3,6 +3,8 @@
 class Ball
 {
 private:
+    // Rayon
+    int radius;
     // position
     double x;
     double y;

@@ -3,19 +3,19 @@
 // constructeur:
 Paddle::Paddle()
 {
-    this->posX = 0;
-    this->posY = 0;
+    this->posX = 500;
+    this->posY = 500;
 
-    this->width = 0;
-    this->width = 0;
+    this->width = 100;
+    this->height = 20;
 }
 
 // getters :
-int Paddle::getX()
+float Paddle::getX()
 {
     return this->posX;
 }
-int Paddle::getY()
+float Paddle::getY()
 {
     return this->posY;
 }
@@ -33,7 +33,7 @@ void Paddle::setX(double p)
 {
     this->posX = p;
 }
-void Paddle::setX(double p)
+void Paddle::setY(double p)
 {
     this->posY = p;
 }

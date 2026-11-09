@@ -5,6 +5,9 @@
 // Constructeur :
 Ball::Ball()
 {
+    // Rayon
+    this->radius = 25;
+
     // Graine aléatoire
     srand(time(nullptr));
 

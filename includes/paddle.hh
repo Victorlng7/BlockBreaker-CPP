@@ -16,8 +16,8 @@ public:
     Paddle();
 
     // guetters
-    int getX();
-    int getY();
+    float getX();
+    float getY();
     int getWidth();
     int getHeight();
 
