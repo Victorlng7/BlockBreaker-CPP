@@ -20,7 +20,10 @@ int main()
     sf::RectangleShape paddleShape({(float)paddle.getWidth(), (float)paddle.getHeight()});
     paddleShape.setFillColor(sf::Color::White);
     // Balle :
-    //  sf::CircleShape ballShape({})
+    sf::CircleShape ballShape({(float)balle.getRadius()});
+    ballShape.setFillColor(sf::Color::White);
+    ballShape.setPointCount(100);
+    ballShape.setPosition({(float)balle.getX(), (float)balle.getVelY()});
 
     while (window.isOpen())
     {
@@ -33,9 +36,6 @@ int main()
                 window.close();
             }
         }
-        // Definition de la taille de la window:
-        unsigned int longueur = window.getSize().x;
-
         // Loop de jeu :
 
         // Lecture des input claviers
@@ -50,12 +50,32 @@ int main()
                 paddle.setX(paddle.getX() + 0.25);
         }
 
+        // Update de la balle :
+
+        // Simulation rebond si ça dépasse
+        if (balle.getX() <= 0 || balle.getX() >= 800 - balle.getRadius())
+        {
+            balle.setVelX(balle.getVelX() * -1);
+            balle.addVelX();
+        }
+        if (balle.getY() <= 0 || balle.getY() >= 600 - balle.getRadius())
+        {
+            balle.setVelY(balle.getVelY() * -1);
+            balle.addVelY();
+        }
+
+        // Update de la position
+        balle.setY(balle.getY() + balle.getVelY());
+        balle.setX(balle.getX() + balle.getVelX());
+
         // MAJ des position avant le rendu
         paddleShape.setPosition({paddle.getX(), paddle.getY()});
+        ballShape.setPosition({balle.getX(), balle.getY()});
 
         // Rendu
         window.clear(sf::Color::Black);
         window.draw(paddleShape);
+        window.draw(ballShape);
         window.display();
     }
 }

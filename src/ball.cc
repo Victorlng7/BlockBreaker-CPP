@@ -6,43 +6,49 @@
 Ball::Ball()
 {
     // Rayon
-    this->radius = 25;
+    this->radius = 15;
 
     // Graine aléatoire
     srand(time(nullptr));
 
     // Position
-    this->x = 0;
-    this->y = 0;
+    this->x = 400;
+    this->y = 300;
 
     // Velocitée
-    this->velX = rand() % 20 + 20;
-    this->velY = rand() % 20 + 20;
-    this->velMax = 500;
+    this->velX = 0.05f + static_cast<float>(std::rand() % 101) / 1000.0f;
+    ;
+    this->velY = 0.05f + static_cast<float>(std::rand() % 101) / 1000.0f;
+    ;
+    this->velMax = 2;
 
     // facteur acceleration
-    this->factAccel = 0.2;
+    this->factAccel = 1.05;
 }
 
 // Getters
-int Ball::getX()
+float Ball::getX()
 {
     return this->x;
 }
 
-int Ball::getY()
+float Ball::getY()
 {
     return this->y;
 }
 
-int Ball::getVelX()
+float Ball::getVelX()
 {
     return this->velX;
 }
 
-int Ball::getVelY()
+float Ball::getVelY()
 {
     return this->velY;
+}
+int Ball::getRadius()
+{
+    return this->radius;
 }
 
 // Setters
@@ -79,29 +85,11 @@ void Ball::addVelY()
         this->velY *= this->factAccel;
     }
 }
-// Méthodes
-
-void Ball::update()
+void Ball::setVelX(double x)
 {
-    // update position
-    this->y += this->velY;
-    this->x += this->velX;
+    this->velX = x;
 }
-
-void Ball::rebondX()
+void Ball::setVelY(double y)
 {
-    // Implémenter vélocitée
-    this->addVelX();
-
-    // Changer vélocitée pour simuler rebond
-    this->x = this->x * -1;
-}
-
-void Ball::rebondY()
-{
-    // Implémenter vélocitée
-    this->addVelY();
-
-    // Changer vélocitée pour simuler rebond
-    this->y = this->y * -1;
+    this->velY = y;
 }
