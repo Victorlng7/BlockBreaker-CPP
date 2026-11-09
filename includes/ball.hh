@@ -31,4 +31,9 @@ public:
     // adders
     void addVelX();
     void addVelY();
+
+    // Methodes
+    void rebondY();
+    void update();
+    void rebondX();
 };

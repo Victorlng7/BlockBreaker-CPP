@@ -76,3 +76,29 @@ void Ball::addVelY()
         this->velY *= this->factAccel;
     }
 }
+// Méthodes
+
+void Ball::update()
+{
+    // update position
+    this->y += this->velY;
+    this->x += this->velX;
+}
+
+void Ball::rebondX()
+{
+    // Implémenter vélocitée
+    this->addVelX();
+
+    // Changer vélocitée pour simuler rebond
+    this->x = this->x * -1;
+}
+
+void Ball::rebondY()
+{
+    // Implémenter vélocitée
+    this->addVelY();
+
+    // Changer vélocitée pour simuler rebond
+    this->y = this->y * -1;
+}
