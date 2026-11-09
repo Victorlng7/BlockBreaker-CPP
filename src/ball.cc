@@ -44,11 +44,11 @@ int Ball::getVelY()
 
 // Setters
 
-void Ball::setX(int x)
+void Ball::setX(double x)
 {
     this->x = x;
 }
-void Ball::setY(int y)
+void Ball::setY(double y)
 {
     this->y = y;
 }

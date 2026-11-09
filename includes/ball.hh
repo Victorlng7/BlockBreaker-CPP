@@ -4,8 +4,8 @@ class Ball
 {
 private:
     // position
-    int x;
-    int y;
+    double x;
+    double y;
     // velocitée
     double velX;
     double velY;
@@ -25,8 +25,8 @@ public:
     int getVelY();
 
     // setters
-    void setX(int x);
-    void setY(int y);
+    void setX(double x);
+    void setY(double y);
 
     // adders
     void addVelX();

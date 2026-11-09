@@ -22,6 +22,6 @@ public:
     int getHeight();
 
     // setters
-    void setX(int p);
-    void setY(int p);
+    void setX(double p);
+    void setY(double p);
 };

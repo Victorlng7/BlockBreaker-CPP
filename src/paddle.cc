@@ -29,11 +29,11 @@ int Paddle::getHeight()
 }
 
 // setters:
-void Paddle::setX(int p)
+void Paddle::setX(double p)
 {
     this->posX = p;
 }
-void Paddle::setX(int p)
+void Paddle::setX(double p)
 {
     this->posY = p;
 }
