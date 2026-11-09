@@ -11,7 +11,7 @@ private:
     // velocitée
     double velX;
     double velY;
-    int velMax;
+    double velMax;
 
     // Facteur acceleration
     double factAccel;

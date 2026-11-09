@@ -1,6 +1,6 @@
 #include "ball.hh"
-#include <ctime>
-#include <cstdlib>
+#include <algorithm>
+#include <cmath>
 
 // Constructeur :
 Ball::Ball()
@@ -8,19 +8,14 @@ Ball::Ball()
     // Rayon
     this->radius = 15;
 
-    // Graine aléatoire
-    srand(time(nullptr));
-
     // Position
     this->x = 400;
     this->y = 300;
 
     // Velocitée
-    this->velX = 0.05f + static_cast<float>(std::rand() % 101) / 1000.0f;
-    ;
-    this->velY = 0.05f + static_cast<float>(std::rand() % 101) / 1000.0f;
-    ;
-    this->velMax = 2;
+    this->velX = 3.0;
+    this->velY = 4.0;
+    this->velMax = 7.0;
 
     // facteur acceleration
     this->factAccel = 1.05;
@@ -65,25 +60,17 @@ void Ball::setY(double y)
 // Adders
 void Ball::addVelX()
 {
-    if (this->velX * this->factAccel > this->velMax)
-    {
-        this->velX = this->velMax;
-    }
-    else
-    {
-        this->velX *= this->factAccel;
-    }
+    const double acceleratedVelocity = this->velX * this->factAccel;
+    this->velX = std::copysign(
+        std::min(std::abs(acceleratedVelocity), this->velMax),
+        acceleratedVelocity);
 }
 void Ball::addVelY()
 {
-    if (this->velY * this->factAccel > this->velMax)
-    {
-        this->velY = this->velMax;
-    }
-    else
-    {
-        this->velY *= this->factAccel;
-    }
+    const double acceleratedVelocity = this->velY * this->factAccel;
+    this->velY = std::copysign(
+        std::min(std::abs(acceleratedVelocity), this->velMax),
+        acceleratedVelocity);
 }
 void Ball::setVelX(double x)
 {
